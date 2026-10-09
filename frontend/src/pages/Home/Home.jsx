@@ -1,5 +1,5 @@
 import "./Home.css"
-import Header from "../../components/Header/Header"
+import Header from "../../components/Hero/Hero"
 
 const Home = () => {
   return (

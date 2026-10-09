@@ -1,9 +1,9 @@
-import "./Header.css"
+import "./Hero.css"
 
 const Header = () => {
   return (
-    <div className="header">
-      <div className="header-contents">
+    <div className="hero">
+      <div className="hero-contents">
          <h2>Order your favourite food here</h2>
          <p>Choose from a diverse menu featuring a delectable array of dishes
             crafted with the finest ingredients and culinary experties . One delicious meal at a time.</p>
