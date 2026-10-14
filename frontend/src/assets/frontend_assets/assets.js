@@ -82,6 +82,15 @@ export const assets = {
     parcel_icon
 }
 
+export {
+  linkedin_icon,
+  facebook_icon,
+  twitter_icon,
+  logo,
+  app_store,
+  play_store,
+};
+
 export const menu_list = [
     {
         menu_name: "Salad",
