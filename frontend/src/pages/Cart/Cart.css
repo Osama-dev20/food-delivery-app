@@ -1,0 +1,258 @@
+/* =========================
+   Cart Container
+========================= */
+
+.cart {
+  margin-top: 100px;
+  padding: 0 5%;
+  min-height: 50vh;
+  font-family: Arial, sans-serif;
+}
+
+/* =========================
+   Cart Items
+========================= */
+
+.cart-items {
+  width: 100%;
+}
+
+.cart-items-title {
+  display: grid;
+  grid-template-columns: 0.7fr 1.3fr 0.8fr 1fr 1fr 0.5fr;
+  align-items: center;
+  gap: 15px;
+  color: #555;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 12px 0;
+}
+
+.cart-items-title p {
+  margin: 0;
+}
+
+.cart-items hr {
+  height: 1px;
+  background-color: #e2e2e2;
+  border: none;
+}
+
+.cart-items-item {
+  margin: 10px 0;
+  padding: 12px 0;
+  color: #333;
+  font-size: 14px;
+  font-weight: 400;
+  border-bottom: 1px solid #eeeeee;
+  transition: background-color 0.2s ease;
+}
+
+.cart-items-item:hover {
+  background-color: #fafafa;
+}
+
+.cart-items-item img {
+  width: 55px;
+  height: 55px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.cart-items-item p {
+  overflow-wrap: anywhere;
+}
+
+/* Remove Item */
+
+.cart-items-item .cart-remove {
+  color: #ff4c24;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  width: fit-content;
+  transition: transform 0.2s ease;
+}
+
+.cart-items-item .cart-remove:hover {
+  transform: scale(1.2);
+}
+
+/* =========================
+   Cart Bottom
+========================= */
+
+.cart-bottom {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+
+/* =========================
+   Cart Totals
+========================= */
+
+.cart-total {
+  width: 100%;
+  max-width: 450px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.cart-total h2 {
+  margin: 0;
+  color: #262626;
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.cart-total-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #555;
+  font-size: 15px;
+}
+
+.cart-total-details p {
+  margin: 0;
+}
+
+.cart-total hr {
+  height: 1px;
+  width: 100%;
+  background-color: #e2e2e2;
+  border: none;
+  margin: 0;
+}
+
+.cart-total-final {
+  color: #262626;
+  font-size: 17px;
+}
+
+/* =========================
+   Checkout Button
+========================= */
+
+.cart-checkout-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 48px;
+  padding: 14px 20px;
+  box-sizing: border-box;
+  background-color: tomato;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color 0.25s ease,
+    transform 0.2s ease;
+}
+
+.cart-checkout-btn:hover {
+  background-color: #e84125;
+  transform: translateY(-2px);
+}
+
+/* =========================
+   Responsive Design
+========================= */
+
+@media (max-width: 750px) {
+  .cart {
+    margin-top: 60px;
+    padding: 0 3%;
+  }
+
+  .cart-items-title {
+    grid-template-columns: 0.7fr 1.2fr 0.8fr 0.8fr 0.9fr 0.5fr;
+    gap: 8px;
+    font-size: 12px;
+  }
+
+  .cart-items-item {
+    font-size: 12px;
+  }
+
+  .cart-items-item img {
+    width: 42px;
+    height: 42px;
+  }
+
+  .cart-bottom {
+    margin-top: 55px;
+  }
+
+  .cart-total {
+    max-width: 400px;
+  }
+}
+
+/* =========================
+   Small Mobile Screens
+========================= */
+
+@media (max-width: 480px) {
+  .cart {
+    margin-top: 40px;
+    padding: 0 12px;
+  }
+
+  .cart-items-title {
+    grid-template-columns: 0.8fr 1.1fr 0.8fr 0.8fr 0.9fr 0.4fr;
+    gap: 5px;
+    font-size: 10px;
+  }
+
+  .cart-items-item {
+    font-size: 10px;
+    gap: 5px;
+  }
+
+  .cart-items-item img {
+    width: 34px;
+    height: 34px;
+    border-radius: 5px;
+  }
+
+  .cart-items-item .cart-remove {
+    font-size: 15px;
+  }
+
+  .cart-bottom {
+    margin-top: 40px;
+    margin-bottom: 50px;
+  }
+
+  .cart-total {
+    max-width: 100%;
+    gap: 16px;
+  }
+
+  .cart-total h2 {
+    font-size: 22px;
+  }
+
+  .cart-total-details {
+    font-size: 14px;
+  }
+
+  .cart-total-final {
+    font-size: 16px;
+  }
+
+  .cart-checkout-btn {
+    font-size: 12px;
+    min-height: 45px;
+  }
+}
