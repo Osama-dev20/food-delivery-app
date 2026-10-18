@@ -1,29 +1,51 @@
+:root {
+  --accent: #ff6347;
+  --accent-soft: rgba(255, 99, 71, 0.18);
+  --text-main: #1f1f1f;
+  --text-muted: #747474;
+}
 
+/* ============ Card ============ */
 .food-item {
+  display: flex;
+  flex-direction: column;
   width: 100%;
   height: 100%;
   overflow: hidden;
-  border-radius: 16px;
-  background: #ffffff;
-  border: 1px solid #eeeeee;
+  border-radius: 20px;
+  background: #fff;
+  border: 1px solid #f0f0f0;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
   transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease;
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
 }
 
 .food-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+  transform: translateY(-6px);
+  border-color: var(--accent-soft);
+  box-shadow: 0 16px 32px var(--accent-soft);
 }
 
-/* Food image container */
+/* ============ Image ============ */
 .food-item-img-container {
+  position: relative;
   width: 100%;
   aspect-ratio: 1.25 / 1;
   overflow: hidden;
   background: #f7f7f7;
-  position: relative;
+}
+
+/* soft gradient so the buttons stand out on any photo */
+.food-item-img-container::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 45%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.35), transparent);
+  pointer-events: none;
+  z-index: 1;
 }
 
 .food-item-image {
@@ -31,90 +53,160 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.35s ease;
+  transition: transform 0.5s ease;
 }
 
 .food-item:hover .food-item-image {
-  transform: scale(1.05);
+  transform: scale(1.08);
 }
 
-/* Add icon */
+/* ============ Add button ============ */
 .add-icon {
   position: absolute;
   right: 12px;
   bottom: 12px;
-  width: 42px;
-  height: 42px;
-  object-fit: contain;
-  cursor: pointer;
-  z-index: 2;
-  transition: transform 0.2s ease;
-}
-
-
-/* Add button */
-.add-icon {
-  position: absolute;
-  right: 12px;
-  bottom: 12px;
-  display: block;
   width: 42px;
   height: 42px;
   object-fit: contain;
   cursor: pointer;
   z-index: 5;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease;
 }
 
-/* Counter container */
+.add-icon:hover {
+  transform: scale(1.12);
+}
+
+.add-icon:active {
+  transform: scale(0.92);
+}
+
+/* ============ Counter ============ */
 .food-item-counter {
   position: absolute;
   right: 12px;
   bottom: 12px;
+  z-index: 5;
 
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-
-  width: auto;
+  gap: 10px;
   min-width: 110px;
   box-sizing: border-box;
-
   padding: 6px 10px;
-  border-radius: 30px;
-  background: #ffffff;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.18);
 
-  z-index: 5;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  animation: counter-in 0.25s ease;
 }
 
-/* Increase and decrease buttons */
 .food-item-counter img {
   position: static;
   display: block;
   flex: 0 0 30px;
-
   width: 30px;
   height: 30px;
-
   object-fit: contain;
   cursor: pointer;
+  transition: transform 0.15s ease;
 }
 
-/* Quantity number */
+.food-item-counter img:hover {
+  transform: scale(1.15);
+}
+
+.food-item-counter img:active {
+  transform: scale(0.88);
+}
+
 .food-item-counter span {
-  display: block;
   flex: 0 0 20px;
   min-width: 20px;
-
   text-align: center;
   font-size: 15px;
-  font-weight: 600;
-  color: #262626;
+  font-weight: 700;
+  color: var(--text-main);
+  animation: pop 0.25s ease;
 }
 
-/* Mobile */
+@keyframes counter-in {
+  from { opacity: 0; transform: scale(0.85); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes pop {
+  0%   { transform: scale(0.6); }
+  60%  { transform: scale(1.25); }
+  100% { transform: scale(1); }
+}
+
+/* ============ Info ============ */
+.food-item-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 8px;
+  padding: 16px 18px 18px;
+}
+
+.food-item-name-rating {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.food-item-name {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.food-item-name-rating img {
+  width: 70px;
+  flex-shrink: 0;
+}
+
+.food-item-desc {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 13px;
+  line-height: 1.55;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.food-item-footer {
+  margin-top: auto;
+  padding-top: 10px;
+  border-top: 1px dashed #ececec;
+}
+
+.food-item-price {
+  margin: 0;
+  color: var(--accent);
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+}
+
+/* ============ Mobile ============ */
 @media (max-width: 750px) {
+  .food-item-info { padding: 12px 14px 14px; }
+  .food-item-name { font-size: 16px; }
+  .food-item-price { font-size: 19px; }
+
   .add-icon {
     width: 36px;
     height: 36px;
@@ -125,7 +217,7 @@
   .food-item-counter {
     right: 8px;
     bottom: 8px;
-    gap: 7px;
+    gap: 6px;
     padding: 5px 7px;
     min-width: 0;
   }
@@ -143,13 +235,15 @@
   }
 }
 
-
-/* Respect reduced-motion preference */
+/* ============ Reduced motion ============ */
 @media (prefers-reduced-motion: reduce) {
   .food-item,
   .food-item-image,
   .add-icon,
-  .food-item-counter img {
+  .food-item-counter,
+  .food-item-counter img,
+  .food-item-counter span {
     transition: none;
+    animation: none;
   }
 }

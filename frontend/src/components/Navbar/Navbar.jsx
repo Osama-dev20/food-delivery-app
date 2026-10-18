@@ -4,7 +4,7 @@ import {assets} from "../../assets/frontend_assets/assets"
 
 import { useState } from "react"
 
-function Navbar() {
+function Navbar({ setShowLogin }) {
   const [menu, setMenu] = useState("home")
 
 
@@ -26,7 +26,7 @@ function Navbar() {
            <div className="dot"></div>
          </div>
 
-        <button>sign in</button>
+         <button onClick={() => setShowLogin(true)}> sign in </button>
        </div>
     </div>
   )
